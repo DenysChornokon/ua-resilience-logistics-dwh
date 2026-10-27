@@ -1,0 +1,48 @@
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache and build artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# DWH datasets
+/data/raw/**
+/data/processed/**
+/data/synthetic/**
+
+# Preserve data directory structure
+!/data/raw/**/
+!/data/processed/**/
+!/data/synthetic/**/
+!/data/**/.gitkeep
+
+# Temporary files
+*.log
+*.tmp
