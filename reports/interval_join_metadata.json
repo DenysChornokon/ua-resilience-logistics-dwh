@@ -1,0 +1,35 @@
+{
+  "seed": 42,
+  "period_utc": "[2026-07-01, 2026-10-01)",
+  "region_id": "UA80000000000093317",
+  "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "processor": "Intel64 Family 6 Model 158 Stepping 13, GenuineIntel",
+  "correctness": {
+    "pair_cases": 6,
+    "delivery_cases": 4,
+    "merged_intervals": [
+      [
+        2,
+        14
+      ],
+      [
+        18,
+        20
+      ]
+    ],
+    "expected_exposure_seconds": [
+      8,
+      10,
+      0,
+      14
+    ],
+    "existing_delivery_count": 500,
+    "existing_exposed_deliveries": 154,
+    "existing_pair_checks": 185500
+  },
+  "timing_scope": "join including output list allocation; excludes reading, generation, and merging",
+  "runs_per_method": 1,
+  "memory": "not measured",
+  "warning": "Alert source timestamps are assumed Europe/Kyiv by user instruction; not verified with source. Processed CSV is converted to UTC."
+}
