@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgres:17.11
+
+    environment:
+      POSTGRES_DB: logistics_dwh
+      POSTGRES_USER: dwh_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+
+    ports:
+      - "127.0.0.1:55432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql:/sql:ro
+
+volumes:
+  postgres_data:
