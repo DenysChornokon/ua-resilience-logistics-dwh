@@ -3,6 +3,7 @@
 .venv/
 venv/
 env/
+.idea/
 
 # Python cache and build artifacts
 __pycache__/

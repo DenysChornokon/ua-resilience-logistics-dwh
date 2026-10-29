@@ -1,0 +1,136 @@
+{
+  "source_file": "airAlert_2026-10-26.json",
+  "source_timezone_assumption": "Europe/Kyiv",
+  "source_timezone_verified": false,
+  "note": "Europe/Kyiv is assumed by user instruction; ambiguous or nonexistent local timestamps are excluded from interval statistics and listed separately.",
+  "total_records": 2736,
+  "fields": {
+    "CATUTTC": {
+      "types": {
+        "str": 2736
+      },
+      "missing": 0,
+      "absent_key": 0
+    },
+    "addressAdminUnitL1": {
+      "types": {
+        "str": 2736
+      },
+      "missing": 0,
+      "absent_key": 0
+    },
+    "addressAdminUnitL2": {
+      "types": {
+        "str": 2736
+      },
+      "missing": 0,
+      "absent_key": 0
+    },
+    "addressPostName": {
+      "types": {
+        "str": 2736
+      },
+      "missing": 0,
+      "absent_key": 0
+    },
+    "cause": {
+      "types": {
+        "str": 2736
+      },
+      "missing": 2400,
+      "absent_key": 0
+    },
+    "dateTimeEnd": {
+      "types": {
+        "str": 2736
+      },
+      "missing": 0,
+      "absent_key": 0
+    },
+    "dateTimeStart": {
+      "types": {
+        "str": 2736
+      },
+      "missing": 0,
+      "absent_key": 0
+    },
+    "level": {
+      "types": {
+        "str": 2736
+      },
+      "missing": 2400,
+      "absent_key": 0
+    },
+    "type": {
+      "types": {
+        "str": 2736
+      },
+      "missing": 0,
+      "absent_key": 0
+    },
+    "uid": {
+      "types": {
+        "str": 2736
+      },
+      "missing": 0,
+      "absent_key": 0
+    }
+  },
+  "categories": {
+    "CATUTTC": {
+      "UA80000000000093317": 2736
+    },
+    "addressAdminUnitL1": {
+      "Україна": 2736
+    },
+    "addressAdminUnitL2": {
+      "місто Київ": 2736
+    },
+    "addressPostName": {
+      "Київ": 2736
+    },
+    "type": {
+      "Повітряна тривога": 2736
+    },
+    "level": {
+      "Жовтий рівень": 305,
+      "Червоний рівень": 31
+    },
+    "cause": {
+      "Дронова небезпека": 305,
+      "Ракетна загроза": 28,
+      "Загроза балістики": 1,
+      "Масована дронова загроза": 2
+    }
+  },
+  "duplicate_uid_values": {},
+  "missing_timestamps": 0,
+  "invalid_timestamps": 0,
+  "unresolved_timezone_intervals": [
+    {
+      "uid": "1837",
+      "start_issue": null,
+      "end_issue": "ambiguous"
+    },
+    {
+      "uid": "2729",
+      "start_issue": "ambiguous",
+      "end_issue": "ambiguous"
+    },
+    {
+      "uid": "2730",
+      "start_issue": "ambiguous",
+      "end_issue": null
+    }
+  ],
+  "invalid_intervals": 0,
+  "valid_intervals": 2733,
+  "overlapping_intervals": 0,
+  "min_start": "2022-02-28T03:51:22+00:00",
+  "max_end": "2026-10-26T01:47:49+00:00",
+  "duration_minutes": {
+    "min": 0.06666666666666667,
+    "median": 37.43333333333333,
+    "max": 764.0666666666667
+  }
+}
