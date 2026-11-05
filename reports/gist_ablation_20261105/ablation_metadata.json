@@ -1,0 +1,15 @@
+{
+  "purpose": "Same range predicate with and without a GiST index on identical alert copies",
+  "control_sql_sha256": "82448acd588bdb07a142015035cdb79563737b81738d032a9c834e855726f3e3",
+  "verified_state": {
+    "alert_copies_equal": true,
+    "alert_rows": 371,
+    "definitions_match": true,
+    "indexes": [
+      "CREATE UNIQUE INDEX alert_events_pkey ON benchmark.alert_events USING btree (event_id)",
+      "CREATE INDEX benchmark_alert_range_gist ON benchmark.alert_events USING gist (tstzrange(started_at, finished_at, '[)'::text))",
+      "CREATE UNIQUE INDEX alert_events_no_gist_pkey ON benchmark.alert_events_no_gist USING btree (event_id)"
+    ]
+  },
+  "limitation": "Different physical copies can have different storage layout; index build and maintenance excluded."
+}
