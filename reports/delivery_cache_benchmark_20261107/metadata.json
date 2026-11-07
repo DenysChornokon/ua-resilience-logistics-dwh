@@ -1,0 +1,141 @@
+{
+  "status": "complete",
+  "started_at_utc": "2026-11-07T12:29:13.201688+00:00",
+  "repetitions": 5,
+  "warmups_per_scenario": 1,
+  "order_seed": 20261107,
+  "scope": "EXPLAIN ANALYZE server execution; baseline constructs states each query; cached uses session-local temp states and GiST index; setup timed separately with server clock",
+  "cache": "independent verification, setup and pre-measurement result comparison warm cache; cache not cleared",
+  "memory": "overall process memory not measured",
+  "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "processor": "Intel64 Family 6 Model 158 Stepping 13, GenuineIntel",
+  "postgres_version": "PostgreSQL 17.11 (Debian 17.11-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+  "postgres_settings": {
+    "effective_cache_size": "524288 8kB",
+    "jit": "on ",
+    "max_parallel_workers_per_gather": "2 ",
+    "random_page_cost": "4 ",
+    "shared_buffers": "16384 8kB",
+    "temp_buffers": "1024 8kB",
+    "work_mem": "4096 kB"
+  },
+  "input_snapshot": {
+    "delivery_view": " SELECT s.scenario_id,\n    d.delivery_id,\n    d.region_id,\n    d.started_at AS delivery_started_at,\n    r.started_at AS state_started_at,\n    r.finished_at AS state_finished_at,\n    r.started_at IS NOT NULL AS state_known,\n    r.alert_active,\n    r.outage_active\n   FROM scenario.definitions s\n     JOIN core.fact_delivery d ON d.region_id = s.region_id AND d.started_at >= s.window_start AND d.started_at < s.window_end\n     LEFT JOIN scenario.region_state r ON r.scenario_id = s.scenario_id AND r.region_id = d.region_id AND d.started_at >= r.started_at AND d.started_at < r.finished_at;",
+    "region_view": " WITH valid_scenarios AS (\n         SELECT s_1.scenario_id,\n            s_1.region_id,\n            s_1.window_start,\n            s_1.window_end,\n            s_1.description\n           FROM scenario.definitions s_1\n          WHERE (EXISTS ( SELECT 1\n                   FROM control.load_batch b\n                  WHERE b.source_type = 'alerts'::text AND b.status = 'success'::text AND b.rows_accepted > 0 AND b.rows_accepted = (( SELECT count(*) AS count\n                           FROM core.fact_alert)) AND NOT (EXISTS ( SELECT 1\n                           FROM core.fact_alert a\n                          WHERE a.load_id <> b.load_id))))\n        ), events AS (\n         SELECT s_1.scenario_id,\n            GREATEST(a.started_at, s_1.window_start) AS started_at,\n            LEAST(a.finished_at, s_1.window_end) AS finished_at,\n            'alert'::text AS factor\n           FROM valid_scenarios s_1\n             JOIN core.fact_alert a ON a.region_id = s_1.region_id AND a.event_type = 'Повітряна тривога'::text AND a.started_at < s_1.window_end AND a.finished_at > s_1.window_start\n        UNION ALL\n         SELECT s_1.scenario_id,\n            GREATEST(o.started_at, s_1.window_start) AS \"greatest\",\n            LEAST(o.finished_at, s_1.window_end) AS \"least\",\n            'outage'::text\n           FROM valid_scenarios s_1\n             JOIN scenario.outage_events o USING (scenario_id)\n          WHERE o.started_at < s_1.window_end AND o.finished_at > s_1.window_start\n        ), changes AS (\n         SELECT events.scenario_id,\n            events.started_at AS t,\n            (events.factor = 'alert'::text)::integer AS da,\n            (events.factor = 'outage'::text)::integer AS do_\n           FROM events\n        UNION ALL\n         SELECT events.scenario_id,\n            events.finished_at,\n            - (events.factor = 'alert'::text)::integer,\n            - (events.factor = 'outage'::text)::integer\n           FROM events\n        UNION ALL\n         SELECT valid_scenarios.scenario_id,\n            valid_scenarios.window_start,\n            0,\n            0\n           FROM valid_scenarios\n        UNION ALL\n         SELECT valid_scenarios.scenario_id,\n            valid_scenarios.window_end,\n            0,\n            0\n           FROM valid_scenarios\n        ), points AS (\n         SELECT changes.scenario_id,\n            changes.t,\n            sum(changes.da) AS da,\n            sum(changes.do_) AS do_\n           FROM changes\n          GROUP BY changes.scenario_id, changes.t\n        ), active AS (\n         SELECT points.scenario_id,\n            points.t,\n            lead(points.t) OVER w AS next_t,\n            sum(points.da) OVER w AS alert_count,\n            sum(points.do_) OVER w AS outage_count\n           FROM points\n          WINDOW w AS (PARTITION BY points.scenario_id ORDER BY points.t ROWS UNBOUNDED PRECEDING)\n        ), segments AS (\n         SELECT active.scenario_id,\n            active.t,\n            active.next_t,\n            active.alert_count > 0::numeric AS alert_active,\n            active.outage_count > 0::numeric AS outage_active\n           FROM active\n          WHERE active.next_t IS NOT NULL AND active.t < active.next_t\n        ), changes_of_state AS (\n         SELECT segments.scenario_id,\n            segments.t,\n            segments.next_t,\n            segments.alert_active,\n            segments.outage_active,\n                CASE\n                    WHEN lag(segments.alert_active) OVER w IS DISTINCT FROM segments.alert_active OR lag(segments.outage_active) OVER w IS DISTINCT FROM segments.outage_active THEN 1\n                    ELSE 0\n                END AS is_new\n           FROM segments\n          WINDOW w AS (PARTITION BY segments.scenario_id ORDER BY segments.t)\n        ), islands AS (\n         SELECT changes_of_state.scenario_id,\n            changes_of_state.t,\n            changes_of_state.next_t,\n            changes_of_state.alert_active,\n            changes_of_state.outage_active,\n            changes_of_state.is_new,\n            sum(changes_of_state.is_new) OVER (PARTITION BY changes_of_state.scenario_id ORDER BY changes_of_state.t) AS island\n           FROM changes_of_state\n        )\n SELECT s.scenario_id,\n    s.region_id,\n    min(i.t) AS started_at,\n    max(i.next_t) AS finished_at,\n    i.alert_active,\n    i.outage_active,\n    EXTRACT(epoch FROM max(i.next_t) - min(i.t)) AS duration_seconds\n   FROM islands i\n     JOIN valid_scenarios s USING (scenario_id)\n  GROUP BY s.scenario_id, s.region_id, i.island, i.alert_active, i.outage_active;",
+    "alerts_md5": "47693720b853c8f23f1b684efb5edb4e",
+    "deliveries_md5": "d273b98384a2cd0852acff7f0c0613d6",
+    "definitions_md5": "3a2dc43fcb48dec668fc9a4deb7994cf",
+    "outages_md5": "b0e5047e72805d7fd544cdb9e47b63ff",
+    "manifests_md5": "0f0a116670f831af28dc1c817090bd46",
+    "load_batches_md5": "22cf32e952014eb46b867c117364b9a0",
+    "alerts_count": 371,
+    "deliveries_count": 500,
+    "definitions_count": 13,
+    "outages_count": 3554
+  },
+  "verification": [
+    {
+      "scenario_id": "density_sparse_s41_v1",
+      "profile": "sparse",
+      "seed": 41,
+      "overlap_pairs": 0,
+      "deliveries": 500,
+      "neither": 339,
+      "alert_only": 84,
+      "outage_only": 66,
+      "both": 11
+    },
+    {
+      "scenario_id": "density_sparse_s42_v1",
+      "profile": "sparse",
+      "seed": 42,
+      "overlap_pairs": 0,
+      "deliveries": 500,
+      "neither": 353,
+      "alert_only": 83,
+      "outage_only": 52,
+      "both": 12
+    },
+    {
+      "scenario_id": "density_sparse_s43_v1",
+      "profile": "sparse",
+      "seed": 43,
+      "overlap_pairs": 0,
+      "deliveries": 500,
+      "neither": 356,
+      "alert_only": 78,
+      "outage_only": 49,
+      "both": 17
+    },
+    {
+      "scenario_id": "density_uniform_s41_v1",
+      "profile": "uniform",
+      "seed": 41,
+      "overlap_pairs": 40,
+      "deliveries": 500,
+      "neither": 358,
+      "alert_only": 81,
+      "outage_only": 47,
+      "both": 14
+    },
+    {
+      "scenario_id": "density_uniform_s42_v1",
+      "profile": "uniform",
+      "seed": 42,
+      "overlap_pairs": 31,
+      "deliveries": 500,
+      "neither": 341,
+      "alert_only": 83,
+      "outage_only": 64,
+      "both": 12
+    },
+    {
+      "scenario_id": "density_uniform_s43_v1",
+      "profile": "uniform",
+      "seed": 43,
+      "overlap_pairs": 39,
+      "deliveries": 500,
+      "neither": 349,
+      "alert_only": 81,
+      "outage_only": 56,
+      "both": 14
+    },
+    {
+      "scenario_id": "density_clustered_s41_v1",
+      "profile": "clustered",
+      "seed": 41,
+      "overlap_pairs": 1920,
+      "deliveries": 500,
+      "neither": 394,
+      "alert_only": 95,
+      "outage_only": 11,
+      "both": 0
+    },
+    {
+      "scenario_id": "density_clustered_s42_v1",
+      "profile": "clustered",
+      "seed": 42,
+      "overlap_pairs": 1814,
+      "deliveries": 500,
+      "neither": 393,
+      "alert_only": 95,
+      "outage_only": 12,
+      "both": 0
+    },
+    {
+      "scenario_id": "density_clustered_s43_v1",
+      "profile": "clustered",
+      "seed": 43,
+      "overlap_pairs": 1968,
+      "deliveries": 500,
+      "neither": 394,
+      "alert_only": 95,
+      "outage_only": 11,
+      "both": 0
+    }
+  ],
+  "optimized_query_template": "SELECT s.scenario_id,d.delivery_id,d.region_id,d.started_at AS delivery_started_at,\n       r.started_at AS state_started_at,r.finished_at AS state_finished_at,\n       (r.started_at IS NOT NULL) AS state_known,r.alert_active,r.outage_active\nFROM scenario.definitions s JOIN core.fact_delivery d ON d.region_id=s.region_id\n AND d.started_at>=s.window_start AND d.started_at<s.window_end\nLEFT JOIN pg_temp.delivery_state_cache r ON r.scenario_id=s.scenario_id AND r.region_id=d.region_id\n AND tstzrange(r.started_at,r.finished_at,'[)') @> d.started_at\nWHERE s.scenario_id='density_sparse_s41_v1'",
+  "setup_definition": "CREATE TEMP TABLE AS SELECT region_state for scenario; create GiST index over tstzrange; ANALYZE; times from server clock around each statement",
+  "finished_at_utc": "2026-11-07T12:29:37.251418+00:00"
+}
