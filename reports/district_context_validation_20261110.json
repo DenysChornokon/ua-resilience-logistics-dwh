@@ -1,0 +1,21 @@
+{
+  "source_commit": "5b82d4c46c828f65b4f945098f8e6801b57ce1b0",
+  "source_sha256": "4c79a55cbc0ad5f521e49388cd7f606ddeb8222d3b48b25ead4c40845802b8a3",
+  "candidate_licence": "OSM-derived; transformation and redistribution terms not confirmed",
+  "source_note": "OSM-derived simplified experimental candidate; date of underlying geometry and authorisation for redistribution not established",
+  "district_count": 10,
+  "valid_districts": 10,
+  "interior_overlap_pairs": 0,
+  "delivery_count": 500,
+  "match_counts": {
+    "matched": 255,
+    "unmatched": 245,
+    "ambiguous": 0
+  },
+  "scenario_id": "density_uniform_s42_v1",
+  "temporal_snapshot_utc": "2026-11-10T13:20:41.203857+00:00",
+  "temporal_snapshot_fresh_at_check": true,
+  "temporal_context_sha256": "485b290b2bd763402fce35e5ce0b4b84f3905fb1a5b797f30b1e444a7c88764b",
+  "view_sha256": "48f3e93af6bb328d58eaecb43aec0c92f6bc6fcd5f24771ea712f5f660aa42fe",
+  "limitations": "synthetic points from historical 2006 outline; candidate boundaries unconfirmed and simplified; no real delivery conclusions"
+}
