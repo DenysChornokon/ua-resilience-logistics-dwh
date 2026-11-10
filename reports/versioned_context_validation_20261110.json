@@ -1,0 +1,17 @@
+{
+  "active_version_id": "d1d57da8-55cb-4e7f-bf2b-f391babb419c",
+  "version_count": 1,
+  "delivery_count": 500,
+  "match_counts": {
+    "matched": 255,
+    "unmatched": 245,
+    "ambiguous": 0
+  },
+  "scenario_id": "density_uniform_s42_v1",
+  "captured_at_utc": "2026-11-10T13:20:41.203857+00:00",
+  "verified_at_utc": "2026-11-10T13:39:08.656822+00:00",
+  "source_fresh_at_check": true,
+  "context_sha256": "485b290b2bd763402fce35e5ce0b4b84f3905fb1a5b797f30b1e444a7c88764b",
+  "view_sha256": "b33501cbe3d8c48589687c0d3031358f7ff9b49074ef365301b17750949a6e87",
+  "scope": "experimental, synthetic points, unconfirmed candidate districts; consistency checked at verification times"
+}
