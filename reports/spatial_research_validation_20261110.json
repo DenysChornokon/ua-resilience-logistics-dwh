@@ -1,0 +1,25 @@
+{
+  "source_manifest": {
+    "generator": "historical_kyiv_spatial_v1",
+    "seed": 42,
+    "synthetic_points": true,
+    "region_id": "UA80000000000093317",
+    "geography_sha256": "34f1a1486c1b6126a3d79c010dbb8398edf495d1688066e3e975c25573dbad10",
+    "geography_id": "74538382B60890943260132",
+    "geography_reference_year": 2006,
+    "delivery_source_sha256": "498918feda47a06358198a73c8ac0eef86a7c1f2899e1431d0e43d4a36b94608",
+    "points_sha256": "0f4cafbc415406f170a64f877182c9803b0221b1f54d4b9ca901c51762929591",
+    "count": 500
+  },
+  "postgis_version": "POSTGIS=\"3.6.4 94d984b\" [EXTENSION] PGSQL=\"170\" GEOS=\"3.14.1-CAPI-1.20.5\" (compiled against GEOS 3.13.1) PROJ=\"9.8.1 NETWORK_ENABLED=OFF URL_ENDPOINT=https://cdn.proj.org USER_WRITABLE_DIRECTORY=/var/lib/postgresql/.local/share/proj DATABASE_PATH=/usr/share/proj/proj.db\" (compiled against PROJ 9.6.0) LIBXML=\"2.9.14\" LIBJSON=\"0.18\" LIBPROTOBUF=\"1.5.1\" WAGYU=\"0.5.0 (Internal)\" TOPOLOGY",
+  "region_valid": true,
+  "srid": 4326,
+  "source_geometry_equals_database": true,
+  "matched_synthetic_deliveries": 500,
+  "boundary_covered": true,
+  "boundary_contained": false,
+  "outside_covered": false,
+  "weather_point_in_historical_shape": true,
+  "view_sha256": "e2692df520d825740ddb7a7b626b56fd4ef2795ec38fe70001ae579680062e8a",
+  "scope": "historical 2006 geoBoundaries geometry and reproducible synthetic coordinates; not current district analysis"
+}
