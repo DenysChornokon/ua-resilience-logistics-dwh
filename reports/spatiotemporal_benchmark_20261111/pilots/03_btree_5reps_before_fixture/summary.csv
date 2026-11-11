@@ -1,0 +1,5 @@
+size,method,runs,median_ms,min_ms,max_ms
+10000,unindexed,5,258.933,254.51,276.098
+10000,indexed,5,64.855,62.616,73.289
+100000,unindexed,5,837.58,809.917,906.968
+100000,indexed,5,411.1,405.08,418.625
