@@ -1,0 +1,90 @@
+{
+  "status": "verified",
+  "verified_at_utc": "2026-11-11T16:26:00.928286+00:00",
+  "verifier_sha256": "795dbe587fdcf94b3e1dff01804ad49df70ea6ba89f6163ac40f9609587877d9",
+  "sql_sha256": {
+    "logistics": "c4f3de2a126e977c0b7496727e451a14ad6f34282a1a94e1630aab2676334e75",
+    "spatial": "b1f1f7f6781b63caf28bb0c4019bcaa63d25f7bddf01d2247b05741790eb8a36"
+  },
+  "checked_queries": {
+    "logistics": [
+      "source_counts",
+      "overview",
+      "delivery_examples",
+      "scenario_counts"
+    ],
+    "spatial": [
+      "active_version",
+      "match_counts",
+      "district_examples",
+      "district_summary"
+    ]
+  },
+  "independent_alert_verification": {
+    "deliveries": 500,
+    "exposed": 154,
+    "total_seconds": 293671
+  },
+  "independent_weather_verification": {
+    "deliveries": 500,
+    "weather_known": 500,
+    "weather_unknown": 0,
+    "previous_hour_precipitation_gt_zero": 60
+  },
+  "active_version_id": "d1d57da8-55cb-4e7f-bf2b-f391babb419c",
+  "context_sha256": "485b290b2bd763402fce35e5ce0b4b84f3905fb1a5b797f30b1e444a7c88764b",
+  "spatial_source_fresh_at_before_and_after_checks": true,
+  "query_result_summary": {
+    "source_counts": {
+      "alerts": 371,
+      "deliveries_synthetic": 500,
+      "weather_hourly": 2208
+    },
+    "overview": {
+      "total_deliveries": "500",
+      "deliveries_with_alert_overlap": "154",
+      "unknown_alert_exposure": "0",
+      "total_alert_overlap_seconds": "293671.000000",
+      "weather_known": "500",
+      "weather_unknown": "0"
+    },
+    "scenario_counts": [
+      {
+        "scenario_id": "density_uniform_s42_v1",
+        "state_known": "t",
+        "alert_active": "f",
+        "outage_active": "f",
+        "deliveries": "341"
+      },
+      {
+        "scenario_id": "density_uniform_s42_v1",
+        "state_known": "t",
+        "alert_active": "f",
+        "outage_active": "t",
+        "deliveries": "64"
+      },
+      {
+        "scenario_id": "density_uniform_s42_v1",
+        "state_known": "t",
+        "alert_active": "t",
+        "outage_active": "f",
+        "deliveries": "83"
+      },
+      {
+        "scenario_id": "density_uniform_s42_v1",
+        "state_known": "t",
+        "alert_active": "t",
+        "outage_active": "t",
+        "deliveries": "12"
+      }
+    ],
+    "district_match_counts": {
+      "matched": 255,
+      "unmatched": 245,
+      "ambiguous": 0
+    },
+    "district_summary_rows": 10
+  },
+  "scope": "SELECT queries in read-only transactions; synthetic deliveries, outages and points; unofficial district candidates",
+  "limitation": "Freshness is checked at two moments, not continuously or atomically across the two databases."
+}
