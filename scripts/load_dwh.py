@@ -168,6 +168,7 @@ CREATE TEMP TABLE tmp_weather (time text, temperature_2m text, precipitation tex
     parts.append('CREATE TEMP TABLE load_context (source_type text PRIMARY KEY, load_id bigint NOT NULL) ON COMMIT DROP;\n')
     for dataset in (a, d, w):
         tz_assumption = sql_literal('Europe/Kyiv') if dataset.name == 'alerts' else 'NULL'
+        # This legacy flag records separate source-custodian verification, not the user's confirmation.
         verified = 'false' if dataset.name == 'alerts' else 'NULL'
         parts.append(f"""WITH inserted AS (
   INSERT INTO control.load_batch (source_type, source_file, source_sha256, transformation_version, source_timezone_assumption, timezone_verified, finished_at, rows_read, rows_accepted, rows_rejected, status)
@@ -216,7 +217,7 @@ def main() -> int:
         print('Завантаження не завершено; транзакцію скасовано.', file=sys.stderr)
         print(result.stderr.decode('utf-8', errors='replace'), file=sys.stderr)
         return result.returncode
-    print('Час первинних тривог: Europe/Kyiv за рішенням користувача, не підтверджено розпорядником.')
+    print('Час первинних тривог: Europe/Kyiv, підтверджено користувачем для проєкту. Окреме підтвердження розпорядника не задокументовано.')
     return 0
 
 

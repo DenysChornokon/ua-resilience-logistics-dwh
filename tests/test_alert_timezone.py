@@ -3,7 +3,7 @@ import json
 import pandas as pd
 import pytest
 
-from scripts import prepare_alerts
+from scripts import prepare_alerts, profile_air_alerts
 from scripts.prepare_alerts import local_to_utc
 from scripts.profile_air_alerts import local_to_utc as profile_local_to_utc
 
@@ -27,6 +27,22 @@ def test_profile_excludes_ambiguous_and_nonexistent_times():
     assert profile_local_to_utc('2026-10-25T03:15:00')[1] == 'ambiguous'
     assert profile_local_to_utc('2026-03-29T03:15:00')[1] == 'nonexistent'
     assert profile_local_to_utc('2026-07-01T19:52:38')[0].isoformat() == '2026-07-01T16:52:38+00:00'
+
+
+def test_profile_distinguishes_user_confirmation_from_custodian_verification(tmp_path, monkeypatch):
+    source = tmp_path / 'alerts.json'
+    output = tmp_path / 'profile.json'
+    source.write_text(json.dumps([{'uid': '1', 'CATUTTC': 'UA80000000000093317',
+                                   'dateTimeStart': '2026-07-01T12:00:00',
+                                   'dateTimeEnd': '2026-07-01T12:30:00'}]), encoding='utf-8')
+    monkeypatch.setattr(profile_air_alerts, 'INPUT_PATH', source)
+    monkeypatch.setattr(profile_air_alerts, 'OUTPUT_PATH', output)
+    profile_air_alerts.profile()
+    report = json.loads(output.read_text(encoding='utf-8'))
+    assert report['source_timezone_assumption'] == 'Europe/Kyiv'
+    assert report['source_timezone_confirmed_by_user'] is True
+    assert report['source_timezone_verified'] is False
+    assert report['valid_intervals'] == 1
 
 
 def test_boundary_is_selected_before_clipping_and_unrelated_dst_is_ignored(tmp_path, monkeypatch):
