@@ -148,7 +148,7 @@ def main():
                 'processor': platform.processor(), 'correctness': check,
                 'timing_scope': 'join including output list allocation; excludes reading, generation, and merging',
                 'runs_per_method': 1, 'memory': 'not measured',
-                'warning': 'Europe/Kyiv is confirmed by the user for the project; separate custodian confirmation is not documented. Processed CSV is converted to UTC.'}
+                'warning': 'Europe/Kyiv is used for the project; separate custodian confirmation is not documented. Processed CSV is converted to UTC.'}
     (report / 'interval_join_metadata.json').write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding='utf-8')
     print('Saved:', csv_path)
 
