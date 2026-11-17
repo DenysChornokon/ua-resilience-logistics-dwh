@@ -1,0 +1,46 @@
+{
+  "status": "verified",
+  "checked_at_utc": "2026-11-17T11:31:00.624223+00:00",
+  "project_base_commit_before_handoff_change": "ca20685b268073934d85a02e8a25670782284595",
+  "temporary_test_snapshot_commit": "4971bbcda8042ea777c8679872ea448e4514de40",
+  "snapshot_note": "Temporary local snapshot of the prior commit and pending handoff files; not a commit in the project repository.",
+  "test_bundle": {
+    "code_files": 647,
+    "local_data_files": 31,
+    "archive_hashes_and_entries_verified": true,
+    "source_data_hashes_unchanged": true,
+    "fresh_directory_restore_verified": true,
+    "matching_git_checkout_data_restore_verified_twice": true,
+    "env_file_git_history_and_database_volumes_excluded": true
+  },
+  "restored_demo": {
+    "status": "verified",
+    "checked_at_utc": "2026-11-17T11:27:36.453314+00:00",
+    "scope": "temporary local restored copy; original host Python and Docker images reused",
+    "core_port": 55434,
+    "spatial_port": 55435,
+    "local_tcp_ports_reachable": true,
+    "database_password_authentication_checked": true,
+    "own_containers_stopped_and_restarted": true,
+    "verification_after_restart": "verified",
+    "source_counts": {
+      "alerts": 371,
+      "deliveries_synthetic": 500,
+      "weather_hourly": 2208
+    },
+    "district_counts": {
+      "matched": 255,
+      "unmatched": 245,
+      "ambiguous": 0
+    },
+    "password_not_present_in_setup_log": true
+  },
+  "temporary_docker_resources_removed": true,
+  "pytest_passed": 114,
+  "limitations": [
+    "Same computer, existing host Python and locally available Docker images were used.",
+    "Separate external backup not created; archive is not encrypted.",
+    "District candidate is unofficial and redistribution conditions remain unresolved.",
+    "pgAdmin GUI was not exercised; SQL, TCP ports and database authentication were verified."
+  ]
+}
