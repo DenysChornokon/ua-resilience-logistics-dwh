@@ -18,7 +18,7 @@
 
 ## 2. Історія тривог: `data/processed/alerts.csv`
 
-**Джерело:** `data/raw/alerts/airAlert_2026-10-26.json`. **Скрипт:** `scripts/prepare_alerts.py`.  
+**Джерело:** [ресурс airAlert.json Порталу даних Києва](https://data.kyivcity.gov.ua/dataset/statystyka-povitrianykh-tryvoh-u-misti-kyievi/resource/5e4fb8a8-f0c8-4a12-885f-192d1f0dba75); локальний знімок — `data/raw/alerts/airAlert_2026-10-26.json`. **Скрипт:** `scripts/prepare_alerts.py`.
 **Гранулярність:** один рядок на окрему завершену подію тривоги Києва, що перетинає досліджуваний період; інтервал обрізається до меж вікна.
 
 | Поле | Тип | Правила |
