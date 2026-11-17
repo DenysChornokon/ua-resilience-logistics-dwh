@@ -1,0 +1,58 @@
+{
+  "status": "complete",
+  "utc_started": "2026-11-05T12:28:35.523914+00:00",
+  "sizes": [
+    10000,
+    100000,
+    1000000
+  ],
+  "repetitions": 5,
+  "warmups_per_case": 1,
+  "order_seed": 20261105,
+  "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "processor": "Intel64 Family 6 Model 158 Stepping 13, GenuineIntel",
+  "timing_scope": "EXPLAIN ANALYZE server execution, all output rows; excludes client result transfer and index build",
+  "cache": "warmups; shared cache is not cleared; actual buffer statistics retained",
+  "memory": "overall process memory not measured",
+  "postgres_version": "PostgreSQL 17.11 (Debian 17.11-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+  "postgres_settings": {
+    "effective_cache_size": "524288 8kB",
+    "jit": "on ",
+    "max_parallel_workers_per_gather": "2 ",
+    "random_page_cost": "4 ",
+    "shared_buffers": "16384 8kB",
+    "work_mem": "4096 kB"
+  },
+  "dataset_manifest": [
+    {
+      "rows_expected": 10000,
+      "source_file": "deliveries_10000.csv",
+      "sha256": "767933bf56e71b4a87faac743d3f1e53e0cfdc17deef9c0a4dc1f389b15d760e",
+      "seed": 42,
+      "loaded_at": "2026-11-05T12:00:36.27619+00:00"
+    },
+    {
+      "rows_expected": 100000,
+      "source_file": "deliveries_100000.csv",
+      "sha256": "74fe687a73341e56bc793b7e105e970f538f3716fccf76ed6ffafd0964b9538b",
+      "seed": 42,
+      "loaded_at": "2026-11-05T12:00:36.27619+00:00"
+    },
+    {
+      "rows_expected": 1000000,
+      "source_file": "deliveries_1000000.csv",
+      "sha256": "957750a410addfe47f9699d3edea83f24aa56be3f61922d6fe6c86576391702c",
+      "seed": 42,
+      "loaded_at": "2026-11-05T12:00:36.27619+00:00"
+    }
+  ],
+  "alert_snapshot": {
+    "load_id": 1,
+    "source_sha256": "52af1ac3c8430f698b560798eb962c82742e68370f546d8a18cc94815619b76b",
+    "alert_count": 371,
+    "captured_at": "2026-11-05T12:15:03.18838+00:00"
+  },
+  "query_definition_sha256": "0d4791b8eecf0dde11a38e8bc9ff82b0c1b648a5635753bba27255ad8330b3b5",
+  "utc_finished": "2026-11-05T12:32:19.534825+00:00"
+}

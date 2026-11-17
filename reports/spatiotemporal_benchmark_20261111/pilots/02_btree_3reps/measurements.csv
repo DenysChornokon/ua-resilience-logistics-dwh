@@ -1,0 +1,17 @@
+order,phase,repetition,size,method,planning_ms,execution_ms,output_rows,shared_hit_blocks,shared_read_blocks,temp_read_blocks,temp_written_blocks,indexes
+1,warmup,0,10000,unindexed,11.996,246.312,10000,30170,0,0,0,alert_started_btree;points_base_pkey;points_unindexed_pkey
+2,warmup,0,100000,unindexed,10.835,803.5,100000,301364,0,0,0,alert_started_btree;points_unindexed_pkey
+3,warmup,0,10000,indexed,11.809,63.209,10000,99199,0,0,0,alert_started_btree;points_base_pkey;points_geometry_gist
+4,warmup,0,100000,indexed,11.35,408.446,100000,369306,0,0,0,alert_started_btree;points_geometry_gist
+5,measured,1,10000,unindexed,11.878,275.35,10000,30170,0,0,0,alert_started_btree;points_base_pkey;points_unindexed_pkey
+6,measured,1,100000,unindexed,12.04,875.011,100000,301364,0,0,0,alert_started_btree;points_unindexed_pkey
+7,measured,1,100000,indexed,12.226,410.719,100000,369306,0,0,0,alert_started_btree;points_geometry_gist
+8,measured,1,10000,indexed,11.519,59.045,10000,99199,0,0,0,alert_started_btree;points_base_pkey;points_geometry_gist
+9,measured,2,10000,indexed,10.847,57.974,10000,99199,0,0,0,alert_started_btree;points_base_pkey;points_geometry_gist
+10,measured,2,100000,unindexed,12.181,864.532,100000,301364,0,0,0,alert_started_btree;points_unindexed_pkey
+11,measured,2,100000,indexed,11.993,410.564,100000,369306,0,0,0,alert_started_btree;points_geometry_gist
+12,measured,2,10000,unindexed,12.286,264.122,10000,30170,0,0,0,alert_started_btree;points_base_pkey;points_unindexed_pkey
+13,measured,3,100000,indexed,11.928,402.879,100000,369306,0,0,0,alert_started_btree;points_geometry_gist
+14,measured,3,100000,unindexed,12.29,850.89,100000,301364,0,0,0,alert_started_btree;points_unindexed_pkey
+15,measured,3,10000,indexed,11.211,62.478,10000,99199,0,0,0,alert_started_btree;points_base_pkey;points_geometry_gist
+16,measured,3,10000,unindexed,11.086,274.849,10000,30170,0,0,0,alert_started_btree;points_base_pkey;points_unindexed_pkey

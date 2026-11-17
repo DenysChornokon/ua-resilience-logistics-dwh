@@ -1,0 +1,206 @@
+{
+  "checked_at_utc": "2026-11-10T14:09:21.260292+00:00",
+  "candidate_sha256": "4c79a55cbc0ad5f521e49388cd7f606ddeb8222d3b48b25ead4c40845802b8a3",
+  "official_code_reference": {
+    "retrieved_at_utc": "2026-11-10T13:57:02.001702+00:00",
+    "index_sha256": "d0eebec0cd610f2c68b09e2b94bd2fb5e1a2edf897f0a016ad3e153448f60bd1",
+    "districts": [
+      {
+        "id": "UA80000000000126643",
+        "candidate_name": "Голосіївський район",
+        "official_organization": "Голосіївська районна в місті Києві державна адміністрація",
+        "official_url": "https://data.kyivcity.gov.ua/organization/holosiivska-rda"
+      },
+      {
+        "id": "UA80000000000210193",
+        "candidate_name": "Дарницький район",
+        "official_organization": "Дарницька районна в місті Києві державна адміністрація",
+        "official_url": "https://data.kyivcity.gov.ua/organization/darnytska-rda"
+      },
+      {
+        "id": "UA80000000000336424",
+        "candidate_name": "Деснянський район",
+        "official_organization": "Деснянська районна в місті Києві державна адміністрація",
+        "official_url": "https://data.kyivcity.gov.ua/organization/desnianska-rda"
+      },
+      {
+        "id": "UA80000000000479391",
+        "candidate_name": "Дніпровський район",
+        "official_organization": "Дніпровська районна в місті Києві державна адміністрація",
+        "official_url": "https://data.kyivcity.gov.ua/organization/dniprovska-rda"
+      },
+      {
+        "id": "UA80000000000551439",
+        "candidate_name": "Оболонський район",
+        "official_organization": "Оболонська районна в місті Києві державна адміністрація",
+        "official_url": "https://data.kyivcity.gov.ua/organization/obolonska-rda"
+      },
+      {
+        "id": "UA80000000000624772",
+        "candidate_name": "Печерський район",
+        "official_organization": "Печерська районна в місті Києві державна адміністрація",
+        "official_url": "https://data.kyivcity.gov.ua/organization/pecherska-rda"
+      },
+      {
+        "id": "UA80000000000719633",
+        "candidate_name": "Подільський район",
+        "official_organization": "Подільська районна в місті Києві державна адміністрація",
+        "official_url": "https://data.kyivcity.gov.ua/organization/podilska-rda"
+      },
+      {
+        "id": "UA80000000000875983",
+        "candidate_name": "Святошинський район",
+        "official_organization": "Святошинська районна в місті Києві державна адміністрація",
+        "official_url": "https://data.kyivcity.gov.ua/organization/sviatoshynska-rda"
+      },
+      {
+        "id": "UA80000000000980793",
+        "candidate_name": "Солом'янський район",
+        "official_organization": "Солом’янська районна в місті Києві державна адміністрація",
+        "official_url": "https://data.kyivcity.gov.ua/organization/solomianska-rda"
+      },
+      {
+        "id": "UA80000000001078669",
+        "candidate_name": "Шевченківський район",
+        "official_organization": "Шевченківська районна в місті Києві державна адміністрація",
+        "official_url": "https://data.kyivcity.gov.ua/organization/shevchenka-rda"
+      }
+    ]
+  },
+  "facility_source": {
+    "url": "https://data.kyivcity.gov.ua/dataset/dani-pro-dytiachi-sportyvni-ta-inshi-maidanchyky-dlia-dozvillia-ta-vidpochynku-shcho-perebuva-aparat/resource/866aa611-ceaa-4937-a168-2a0e9240b2d1",
+    "dataset_sha256": "af48b25ddadf2eae046b2dc901bb4a72e0427f7c4868779a1256f0cbc72efb27",
+    "retrieved_at_utc": "2026-11-10T13:57:02.001702+00:00",
+    "scope": "separately published public municipal facilities; coordinate and label errors possible"
+  },
+  "facility_quality": {
+    "records": 1164,
+    "invalid_coordinates": 0,
+    "unknown_district_labels": 0,
+    "valid_labelled_records": 1164,
+    "unique_coordinates": 924,
+    "duplicate_records_collapsed": 240,
+    "conflicting_label_coordinates_excluded": 3,
+    "records_at_conflicting_coordinates": 7,
+    "unique_points_checked": 921
+  },
+  "facility_comparison": {
+    "status_counts": {
+      "match": 892,
+      "other_district": 29,
+      "outside_all": 0,
+      "ambiguous": 0
+    },
+    "district_counts": {
+      "UA80000000000551439": {
+        "other_district": 3,
+        "match": 141
+      },
+      "UA80000000001078669": {
+        "match": 103,
+        "other_district": 7
+      },
+      "UA80000000000719633": {
+        "match": 40
+      },
+      "UA80000000000980793": {
+        "match": 159,
+        "other_district": 2
+      },
+      "UA80000000000479391": {
+        "other_district": 15,
+        "match": 138
+      },
+      "UA80000000000126643": {
+        "match": 103
+      },
+      "UA80000000000624772": {
+        "match": 21
+      },
+      "UA80000000000336424": {
+        "match": 74,
+        "other_district": 1
+      },
+      "UA80000000000210193": {
+        "other_district": 1,
+        "match": 113
+      }
+    },
+    "other_district_pairs": [
+      {
+        "expected_id": "UA80000000000210193",
+        "polygon_id": "UA80000000000336424",
+        "points": 1
+      },
+      {
+        "expected_id": "UA80000000000336424",
+        "polygon_id": "UA80000000000479391",
+        "points": 1
+      },
+      {
+        "expected_id": "UA80000000000479391",
+        "polygon_id": "UA80000000000336424",
+        "points": 7
+      },
+      {
+        "expected_id": "UA80000000000479391",
+        "polygon_id": "UA80000000000624772",
+        "points": 3
+      },
+      {
+        "expected_id": "UA80000000000479391",
+        "polygon_id": "UA80000000000980793",
+        "points": 5
+      },
+      {
+        "expected_id": "UA80000000000551439",
+        "polygon_id": "UA80000000000875983",
+        "points": 1
+      },
+      {
+        "expected_id": "UA80000000000551439",
+        "polygon_id": "UA80000000001078669",
+        "points": 2
+      },
+      {
+        "expected_id": "UA80000000000980793",
+        "polygon_id": "UA80000000000719633",
+        "points": 2
+      },
+      {
+        "expected_id": "UA80000000001078669",
+        "polygon_id": "UA80000000000126643",
+        "points": 1
+      },
+      {
+        "expected_id": "UA80000000001078669",
+        "polygon_id": "UA80000000000719633",
+        "points": 3
+      },
+      {
+        "expected_id": "UA80000000001078669",
+        "polygon_id": "UA80000000000980793",
+        "points": 3
+      }
+    ],
+    "mismatch_distance_from_expected_boundary": {
+      "lt_100m": 10,
+      "100_to_500m": 7,
+      "at_least_500m": 12
+    },
+    "districts_without_reference_points": [
+      {
+        "id": "UA80000000000875983",
+        "name": "Святошинський район"
+      }
+    ]
+  },
+  "shape_comparison_km2": {
+    "historical_km2": 1020.964,
+    "candidate_km2": 805.87,
+    "intersection_km2": 515.067,
+    "historical_only_km2": 505.9,
+    "candidate_only_km2": 290.798
+  },
+  "limits": "not authoritative boundary certification; source point coverage is incomplete and not random; historical comparison is not a ground truth"
+}

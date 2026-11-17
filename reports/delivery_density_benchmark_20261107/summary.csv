@@ -1,0 +1,10 @@
+profile,seed,scenario_id,overlap_pairs,deliveries,runs,median_ms,min_ms,max_ms
+sparse,41,density_sparse_s41_v1,0,500,5,51.102,49.836,53.435
+sparse,42,density_sparse_s42_v1,0,500,5,50.204,50.116,50.872
+sparse,43,density_sparse_s43_v1,0,500,5,51.649,50.11,53.666
+uniform,41,density_uniform_s41_v1,40,500,5,48.729,47.283,50.59
+uniform,42,density_uniform_s42_v1,31,500,5,50.369,48.783,55.132
+uniform,43,density_uniform_s43_v1,39,500,5,49.077,48.302,50.688
+clustered,41,density_clustered_s41_v1,1920,500,5,35.491,34.642,37.283
+clustered,42,density_clustered_s42_v1,1814,500,5,36.012,34.824,41.954
+clustered,43,density_clustered_s43_v1,1968,500,5,34.613,34.086,38.184

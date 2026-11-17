@@ -1,0 +1,4 @@
+profile,seeds,median_of_seed_medians_ms,min_seed_median_ms,max_seed_median_ms
+sparse,3,51.102,50.204,51.649
+uniform,3,49.077,48.729,50.369
+clustered,3,35.491,34.613,36.012

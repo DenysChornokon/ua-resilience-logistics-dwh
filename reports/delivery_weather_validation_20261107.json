@@ -1,0 +1,16 @@
+{
+  "source_sha256": {
+    "weather": "c97046dd89ba81d3e6406a27af9ea070d386646a3f364b3b9e33f011a539dbd4",
+    "deliveries": "498918feda47a06358198a73c8ac0eef86a7c1f2899e1431d0e43d4a36b94608"
+  },
+  "verified_counts": {
+    "deliveries": 500,
+    "weather_known": 500,
+    "weather_unknown": 0,
+    "previous_hour_precipitation_gt_zero": 60
+  },
+  "weather_view_sha256": "04a3126d15022445318928505de87520ebcd993dbf628992dd67e6adc3ff4329",
+  "context_view_sha256": "461c69871b7e8d3b4d5a77813ea72b59e10b80f83a22766766ce9f73e720632f",
+  "semantics": "latest exact UTC hour at or before start; precipitation sum in preceding hour at that timestamp",
+  "scope": "current loaded data; weather one Kyiv point; deliveries synthetic"
+}

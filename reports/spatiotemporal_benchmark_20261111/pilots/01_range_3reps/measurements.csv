@@ -1,0 +1,17 @@
+order,phase,repetition,size,method,planning_ms,execution_ms,output_rows,shared_hit_blocks,shared_read_blocks,temp_read_blocks,temp_written_blocks,indexes
+1,warmup,0,10000,unindexed,11.287,579.324,10000,29545,0,0,0,points_base_pkey;points_unindexed_pkey
+2,warmup,0,100000,unindexed,10.962,4158.94,100000,295088,0,0,0,points_unindexed_pkey
+3,warmup,0,10000,indexed,11.796,462.279,10000,98574,0,0,0,points_base_pkey;points_geometry_gist
+4,warmup,0,100000,indexed,11.464,4187.426,100000,363030,0,0,0,points_geometry_gist
+5,measured,1,10000,unindexed,13.094,655.569,10000,29545,0,0,0,points_base_pkey;points_unindexed_pkey
+6,measured,1,100000,unindexed,12.072,4188.295,100000,295088,0,0,0,points_unindexed_pkey
+7,measured,1,100000,indexed,10.708,4125.2,100000,363030,0,0,0,points_geometry_gist
+8,measured,1,10000,indexed,11.176,445.502,10000,98574,0,0,0,points_base_pkey;points_geometry_gist
+9,measured,2,10000,indexed,11.085,464.978,10000,98574,0,0,0,points_base_pkey;points_geometry_gist
+10,measured,2,100000,unindexed,11.973,4194.775,100000,295088,0,0,0,points_unindexed_pkey
+11,measured,2,100000,indexed,10.917,4201.346,100000,363030,0,0,0,points_geometry_gist
+12,measured,2,10000,unindexed,10.847,590.381,10000,29545,0,0,0,points_base_pkey;points_unindexed_pkey
+13,measured,3,100000,indexed,11.132,4165.143,100000,363030,0,0,0,points_geometry_gist
+14,measured,3,100000,unindexed,11.566,4193.536,100000,295088,0,0,0,points_unindexed_pkey
+15,measured,3,10000,indexed,10.66,456.98,10000,98574,0,0,0,points_base_pkey;points_geometry_gist
+16,measured,3,10000,unindexed,10.894,583.1,10000,29545,0,0,0,points_base_pkey;points_unindexed_pkey

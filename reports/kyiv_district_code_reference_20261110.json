@@ -1,0 +1,64 @@
+{
+  "records": [
+    {
+      "url": "https://data.kyivcity.gov.ua/organization/holosiivska-rda",
+      "code": "UA80000000000126643",
+      "organization": "Голосіївська районна в місті Києві державна адміністрація",
+      "html_sha256": "e36180c1be2b0009ae0e59b085c46ad79bdc4b572dfe0792a0894d3dc6da8b71"
+    },
+    {
+      "url": "https://data.kyivcity.gov.ua/organization/darnytska-rda",
+      "code": "UA80000000000210193",
+      "organization": "Дарницька районна в місті Києві державна адміністрація",
+      "html_sha256": "375a652dee5f144490940786334aee3a4ba36fe7e8f016e90c47a310abcf82c0"
+    },
+    {
+      "url": "https://data.kyivcity.gov.ua/organization/desnianska-rda",
+      "code": "UA80000000000336424",
+      "organization": "Деснянська районна в місті Києві державна адміністрація",
+      "html_sha256": "1d07558bd8f0ea9b1cc142da4eb825e6c9443a82405bb1c192f14ea09a5b4559"
+    },
+    {
+      "url": "https://data.kyivcity.gov.ua/organization/dniprovska-rda",
+      "code": "UA80000000000479391",
+      "organization": "Дніпровська районна в місті Києві державна адміністрація",
+      "html_sha256": "ed1db3d0cb7af88ccf5da6e30c8e377e40b34700cd29ac14c5c04290a2a9022d"
+    },
+    {
+      "url": "https://data.kyivcity.gov.ua/organization/obolonska-rda",
+      "code": "UA80000000000551439",
+      "organization": "Оболонська районна в місті Києві державна адміністрація",
+      "html_sha256": "49c81b62a0bc3d10b3720cee5c2278e791ff3e8450985f0399376906383589ae"
+    },
+    {
+      "url": "https://data.kyivcity.gov.ua/organization/pecherska-rda",
+      "code": "UA80000000000624772",
+      "organization": "Печерська районна в місті Києві державна адміністрація",
+      "html_sha256": "e59ae63baa7ec0b2e0165e65402acb3b7873cb70dc0bbd3c7fb38637d8ffef1a"
+    },
+    {
+      "url": "https://data.kyivcity.gov.ua/organization/podilska-rda",
+      "code": "UA80000000000719633",
+      "organization": "Подільська районна в місті Києві державна адміністрація",
+      "html_sha256": "09b6495d1fed19d6439515d3b1bc775b7caa96ebf044f64068df9c487feb06a1"
+    },
+    {
+      "url": "https://data.kyivcity.gov.ua/organization/sviatoshynska-rda",
+      "code": "UA80000000000875983",
+      "organization": "Святошинська районна в місті Києві державна адміністрація",
+      "html_sha256": "8345b8d9383eb87789d4c73512c5c368fc78bbcb684be4bcd54d9309ee34d3d0"
+    },
+    {
+      "url": "https://data.kyivcity.gov.ua/organization/solomianska-rda",
+      "code": "UA80000000000980793",
+      "organization": "Солом’янська районна в місті Києві державна адміністрація",
+      "html_sha256": "2b0ba31288dd9ae815d97e5ee31a5dd9aca169ed7d09c59f10de71c52d2e5144"
+    },
+    {
+      "url": "https://data.kyivcity.gov.ua/organization/shevchenka-rda",
+      "code": "UA80000000001078669",
+      "organization": "Шевченківська районна в місті Києві державна адміністрація",
+      "html_sha256": "db215f2ef916366450d8c44c6c2959d196378504e27ac4de2276f0aa28a78fd3"
+    }
+  ]
+}

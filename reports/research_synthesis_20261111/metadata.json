@@ -1,0 +1,22 @@
+{
+  "status": "complete",
+  "generated_at_utc": "2026-11-11T12:16:26.342733+00:00",
+  "runner_sha256": "0e001f4d403cc8929e4f34787d7b6ca28be05dc7b7efb354c478debfdf997e1d",
+  "source_sha256": {
+    "reports/postgres_benchmark_20261105/metadata.json": "9097d10048e149255ab9a43fef90dc884a2129dfb8227b354b4aefcf685a0a74",
+    "reports/postgres_benchmark_20261105/measurements.csv": "019f0db16b502249f6fd13b753bed388c2398508548a685ada88c4443ce26f00",
+    "reports/postgres_benchmark_20261105/summary.csv": "1f9c26e355a46cc7e476c596925851d35615cfaa2e982dab0689fb23f6c5ecea",
+    "reports/gist_ablation_20261105/metadata.json": "472ee51e3035f8523078fca476e3024c9956eabd1789f7114528361387eac2b6",
+    "reports/gist_ablation_20261105/measurements.csv": "87ce95c00a6c5c2a6eb0f29c4d7fcd82d98405649a1d7f7904de31f609df21dd",
+    "reports/gist_ablation_20261105/summary.csv": "4dede119d899031167e33c7ce69fb0f9cb166754dbb794cf207e695affece0bc",
+    "reports/spatiotemporal_benchmark_20261111/metadata.json": "ba935c31eb69734d54f2d71e41a32cae61f1039ec2e576c0e68876360cf2fcea",
+    "reports/spatiotemporal_benchmark_20261111/measurements.csv": "27489e04040376b62851682399c461e718480fa4781f053f33c7452aa9a58256",
+    "reports/spatiotemporal_benchmark_20261111/summary.csv": "8ec6721bccc5a80ef96c0f7be01f0a8f503b8ae516dfcb4280dbce5b8f0962ae",
+    "reports/delivery_scale_benchmark_20261107/metadata.json": "730add32e539f2e8245545bc9071af5905a712011ca82f711b07fe77c45008e5",
+    "reports/delivery_scale_benchmark_20261107/measurements.csv": "fe09c91de5e4f6d4e82812420b43841a5e0067cca89b27f890407cb9b4465914",
+    "reports/delivery_scale_benchmark_20261107/summary.csv": "a792e06223b4707f1a200f96506f5f78c6ae7f25961eb9a7321aa385b76e8020"
+  },
+  "case_count": 14,
+  "method": "medians and min/max from measured trials only; state preparation plus query summed per paired trial before median",
+  "note": "The four panels are separate experiments and do not directly compare different query workloads."
+}

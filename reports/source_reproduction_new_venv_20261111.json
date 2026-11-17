@@ -1,0 +1,55 @@
+{
+  "status": "matched",
+  "checked_at_utc": "2026-11-11T11:26:45.382327+00:00",
+  "scope": "local raw alerts and weather JSON snapshots, deterministic synthetic delivery generator, existing Python environment",
+  "raw_source_sha256": {
+    "data/raw/alerts/airAlert_2026-10-26.json": "2688476fed855c3c7bf8cca15ac42092b25f8ccaf2602ddd5082011613360d2e",
+    "data/raw/weather/kyiv_weather.json": "5f2f58f6a62873cc994d289a7959feee376ef2c1dbeac6c79e9eaa5a1bf923e0"
+  },
+  "code_sha256": {
+    "verification": "5f6c36fb292abac087cbc96fd2db0c75a3b118824718e6f16f1c466b8e72aa0b",
+    "prepare_alerts": "9aae8a41d35ee4cca76bb350c687a7f32c7f859f39bf79e553e5264f4f9e88dd",
+    "generate_deliveries": "02462632e4a5297811a59cce8b2e8c89fd3c2883b03a24cf9652efc80843a1e9",
+    "load_validation": "e299c7d60f65ede61af0d242a4a0d9ddc11a98d5b602c878eeea21e0c086be18"
+  },
+  "weather_grid_point": {
+    "latitude": 50.439365,
+    "longitude": 30.476192,
+    "requested_latitude": 50.4501,
+    "requested_longitude": 30.5234
+  },
+  "csv_comparison": {
+    "data/processed/alerts.csv": {
+      "rebuilt_sha256": "52af1ac3c8430f698b560798eb962c82742e68370f546d8a18cc94815619b76b",
+      "data_rows": 371,
+      "original_sha256": "52af1ac3c8430f698b560798eb962c82742e68370f546d8a18cc94815619b76b",
+      "exact_bytes_equal": true,
+      "csv_fields_and_order_equal": true
+    },
+    "data/processed/kyiv_weather.csv": {
+      "rebuilt_sha256": "c97046dd89ba81d3e6406a27af9ea070d386646a3f364b3b9e33f011a539dbd4",
+      "data_rows": 2208,
+      "original_sha256": "c97046dd89ba81d3e6406a27af9ea070d386646a3f364b3b9e33f011a539dbd4",
+      "exact_bytes_equal": true,
+      "csv_fields_and_order_equal": true
+    },
+    "data/synthetic/deliveries.csv": {
+      "rebuilt_sha256": "498918feda47a06358198a73c8ac0eef86a7c1f2899e1431d0e43d4a36b94608",
+      "data_rows": 500,
+      "original_sha256": "498918feda47a06358198a73c8ac0eef86a7c1f2899e1431d0e43d4a36b94608",
+      "exact_bytes_equal": true,
+      "csv_fields_and_order_equal": true
+    }
+  },
+  "validated_counts": {
+    "alerts": 371,
+    "deliveries": 500,
+    "weather": 2208
+  },
+  "environment": {
+    "python": "3.13.3",
+    "pandas": "3.1.0",
+    "numpy": "2.5.4"
+  },
+  "limitations": "No network source download or clean OS/Python installation; boundaries and large benchmarks excluded; synthetic deliveries are not real observations."
+}

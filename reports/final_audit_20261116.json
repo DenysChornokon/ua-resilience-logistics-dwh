@@ -1,0 +1,79 @@
+{
+  "status": "verified_research_prototype",
+  "checked_at_utc": "2026-11-16T13:55:05.148709+00:00",
+  "working_repository_base_commit": "1ca271a0357614888e7b9180f27f19f4e7498eaf",
+  "isolated_audited_snapshot_commit": "b742ee6ef38c0d26e02f10d27904ca9a2a1eda49",
+  "snapshot_note": "Temporary local snapshot of base commit plus audited code/notebook changes, not a commit in the project repository; line endings normalized when comparing source.",
+  "tests_passed_in_isolated_snapshot": 98,
+  "isolated_database_cleanup": "complete",
+  "source_reproduction": {
+    "status": "matched",
+    "exact_bytes_equal": true,
+    "datasets": {
+      "alerts": 371,
+      "deliveries": 500,
+      "weather": 2208
+    }
+  },
+  "demo": {
+    "status": "verified",
+    "source_counts": {
+      "alerts": 371,
+      "deliveries_synthetic": 500,
+      "weather_hourly": 2208
+    },
+    "alert_verification": {
+      "deliveries": 500,
+      "exposed": 154,
+      "total_seconds": 293671
+    },
+    "weather_verification": {
+      "deliveries": 500,
+      "weather_known": 500,
+      "weather_unknown": 0,
+      "previous_hour_precipitation_gt_zero": 60
+    },
+    "district_match_counts": {
+      "matched": 255,
+      "unmatched": 245,
+      "ambiguous": 0
+    },
+    "freshness_checked_before_and_after": true
+  },
+  "synthesis": {
+    "source_files_verified": 12,
+    "comparison_rows": 14,
+    "regenerated_csv_exact_bytes_equal": true
+  },
+  "notebook": {
+    "valid": true,
+    "code_cells": 4,
+    "sha256": "b8b49f353e12d86c53131d498172379b6c17989e25f24c0f3e13223a0b9d3e52",
+    "execution": "All cells executed with project Python; 500 deliveries, 154 with alert overlap, 293671 overlap seconds; input files unchanged."
+  },
+  "short_alerts": [
+    {
+      "event_id": "2224",
+      "duration_seconds": 35,
+      "source_endpoints_match": true
+    },
+    {
+      "event_id": "2293",
+      "duration_seconds": 45,
+      "source_endpoints_match": true
+    }
+  ],
+  "timezone": {
+    "iana_zone": "Europe/Kyiv",
+    "confirmed_by_user_for_project": true,
+    "separate_custodian_confirmation_documented": false,
+    "legacy_database_timezone_verified": false,
+    "historical_database_rows_modified": false
+  },
+  "limitations": [
+    "Same host and existing base Python; raw sources copied locally, not downloaded anew.",
+    "Synthetic deliveries, outage events and coordinates; unofficial district boundaries.",
+    "pgAdmin GUI not exercised; demonstration SQL verified through read-only database transactions.",
+    "Independent backup of excluded data was not verified; requirements do not pin artifact hashes."
+  ]
+}

@@ -193,8 +193,10 @@ def profile():
     report = {
         "source_file": INPUT_PATH.name,
         "source_timezone_assumption": SOURCE_TIMEZONE,
+        "source_timezone_confirmed_by_user": True,
+        # Legacy field: separate confirmation by the source custodian is not documented.
         "source_timezone_verified": False,
-        "note": "Europe/Kyiv is assumed by user instruction; ambiguous or nonexistent local timestamps are excluded from interval statistics and listed separately.",
+        "note": "Europe/Kyiv is used for this project; separate custodian confirmation is not documented. Ambiguous or nonexistent local timestamps are excluded from interval statistics and listed separately.",
         "total_records": len(records),
         "fields": fields,
         "categories": categories,

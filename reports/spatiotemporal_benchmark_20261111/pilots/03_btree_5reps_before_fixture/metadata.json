@@ -1,0 +1,125 @@
+{
+  "status": "complete",
+  "completed_at_utc": "2026-11-11T11:43:35.060694+00:00",
+  "runner_sha256": "464c523ef820b6845a5346b9abaa71ba8bee37174b924967e5530ead0e77cd9e",
+  "delivery_manifest_sha256": "3d0f89617ea2f3d0c578085dc340c5f8c0108b23ba13f64a461f56e6a5dac5cb",
+  "source_sha256": {
+    "alerts": "52af1ac3c8430f698b560798eb962c82742e68370f546d8a18cc94815619b76b",
+    "deliveries": "74fe687a73341e56bc793b7e105e970f538f3716fccf76ed6ffafd0964b9538b",
+    "districts": "4c79a55cbc0ad5f521e49388cd7f606ddeb8222d3b48b25ead4c40845802b8a3"
+  },
+  "input_data_sha256": {
+    "synthetic_points.csv": "c7c6a5dc5283d4fa35910c253f023a198f1b9d2e86512f5b78678ac76f810b44",
+    "independent_expected.csv": "41f20c972f15cff56941f5bd468ed73a318cc56af8178966a842608cbbb1ac0c"
+  },
+  "source_commit": "5b82d4c46c828f65b4f945098f8e6801b57ce1b0",
+  "districts": 10,
+  "source_note": "Unofficial simplified OSM-derived district candidates; administrative accuracy not established.",
+  "data_note": "Synthetic deliveries and coordinates; uniform longitude/latitude over district bounding box plus 0.05 degrees; not representative routes or area-uniform density.",
+  "seed": 20261111,
+  "bounds_lon_lat": [
+    30.192,
+    50.164,
+    30.8749,
+    50.635
+  ],
+  "events": 371,
+  "sizes": [
+    10000,
+    100000
+  ],
+  "counts": {
+    "10000": {
+      "matched": 3162,
+      "unmatched": 6838,
+      "ambiguous": 0,
+      "alert_active": 1784
+    },
+    "100000": {
+      "matched": 31669,
+      "unmatched": 68331,
+      "ambiguous": 0,
+      "alert_active": 17904
+    }
+  },
+  "input_integrity": {
+    "districts": 10,
+    "valid_districts": 10,
+    "alerts": 371,
+    "points": 100000,
+    "expected": 100000,
+    "copies_equal": true,
+    "indexed_gist": true
+  },
+  "independent_reference": "Python ray casting plus binary search over non-overlapping alert intervals; all outputs compared before and after",
+  "temporal_query": "Most recent alert start <= delivery start using B-tree, then check delivery start < alert end; valid for the validated non-overlapping alert snapshot only.",
+  "repetitions": 5,
+  "warmups_per_case": 1,
+  "order_seed": 20261111,
+  "timing_scope": "EXPLAIN ANALYZE server time; excludes result transfer and index creation; buffers and plans retained",
+  "index_build_wall_ms_once": 477.587,
+  "index_build_scope": "CREATE INDEX plus ANALYZE and docker exec process overhead; one sample, not included in query times",
+  "cache": "warmups; cache not cleared",
+  "memory": "total process memory not measured",
+  "postgres": {
+    "version": "PostgreSQL 17.11 (Debian 17.11-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+    "postgis": "POSTGIS=\"3.6.4 94d984b\" [EXTENSION] PGSQL=\"170\" GEOS=\"3.14.1-CAPI-1.20.5\" (compiled against GEOS 3.13.1) PROJ=\"9.8.1 NETWORK_ENABLED=OFF URL_ENDPOINT=https://cdn.proj.org USER_WRITABLE_DIRECTORY=/var/lib/postgresql/.local/share/proj DATABASE_PATH=/usr/share/proj/proj.db\" (compiled against PROJ 9.6.0) LIBXML=\"2.9.14\" LIBJSON=\"0.18\" LIBPROTOBUF=\"1.5.1\" WAGYU=\"0.5.0 (Internal)\" TOPOLOGY",
+    "settings": {
+      "effective_cache_size": "524288 8kB",
+      "jit": "on ",
+      "max_parallel_workers_per_gather": "2 ",
+      "random_page_cost": "4 ",
+      "shared_buffers": "16384 8kB",
+      "work_mem": "4096 kB"
+    }
+  },
+  "python": "3.13.3",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "image": "postgis/postgis:17-3.6@sha256:1ac10b2551ba84ae05db8e7da477afcd0a3fede99bcb7705da2ee157390cb095",
+  "container_and_anonymous_volume_cleanup": "complete",
+  "summary": [
+    {
+      "size": 10000,
+      "method": "unindexed",
+      "runs": 5,
+      "median_ms": 258.933,
+      "min_ms": 254.51,
+      "max_ms": 276.098
+    },
+    {
+      "size": 10000,
+      "method": "indexed",
+      "runs": 5,
+      "median_ms": 64.855,
+      "min_ms": 62.616,
+      "max_ms": 73.289
+    },
+    {
+      "size": 100000,
+      "method": "unindexed",
+      "runs": 5,
+      "median_ms": 837.58,
+      "min_ms": 809.917,
+      "max_ms": 906.968
+    },
+    {
+      "size": 100000,
+      "method": "indexed",
+      "runs": 5,
+      "median_ms": 411.1,
+      "min_ms": 405.08,
+      "max_ms": 418.625
+    }
+  ],
+  "query_sha256": {
+    "10000_unindexed": "c452bec124a501310039309a69cfe5cdac72122d7835bf2d0ad01dd5b1c0c262",
+    "10000_indexed": "5045380b4457b9f7d96ce92debaaa8c19bb3cfc5241d7abd8057485afdb776ec",
+    "100000_unindexed": "4c2e11f7e7558a7b884b4e2ec62f5c6974f44f752b63d4b7c2ec40ce9a60ae8a",
+    "100000_indexed": "bde3480a9562f27cbad47344402ee76d96c2d27682c41e9427ac8acf69fe8f8e"
+  },
+  "spatial_index_used_in_measured": {
+    "10000": 5,
+    "100000": 5
+  },
+  "limitations": "One host, one seed, prefix datasets, 10 unofficial polygons, synthetic points, warm cache; no causal or production claims."
+}

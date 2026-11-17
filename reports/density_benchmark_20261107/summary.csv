@@ -1,0 +1,10 @@
+profile,seed,scenario_id,overlap_pairs,state_count,runs,median_ms,min_ms,max_ms
+sparse,41,density_sparse_s41_v1,0,1242,5,10.429,9.865,10.876
+sparse,42,density_sparse_s42_v1,0,1242,5,10.19,9.852,10.688
+sparse,43,density_sparse_s43_v1,0,1242,5,10.771,9.608,11.356
+uniform,41,density_uniform_s41_v1,40,1168,5,9.821,9.549,10.762
+uniform,42,density_uniform_s42_v1,31,1186,5,10.371,10.027,11.53
+uniform,43,density_uniform_s43_v1,39,1170,5,10.181,9.717,11.654
+clustered,41,density_clustered_s41_v1,1920,762,5,9.844,9.497,10.816
+clustered,42,density_clustered_s42_v1,1814,762,5,10.229,9.456,10.558
+clustered,43,density_clustered_s43_v1,1968,762,5,10.097,9.621,10.934

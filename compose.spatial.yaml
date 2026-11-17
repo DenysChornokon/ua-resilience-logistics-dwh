@@ -1,0 +1,16 @@
+services:
+  spatial-db:
+    profiles: ["spatial-research"]
+    # Isolated database and volume: never attach the existing PostgreSQL volume.
+    image: postgis/postgis:17-3.6@sha256:1ac10b2551ba84ae05db8e7da477afcd0a3fede99bcb7705da2ee157390cb095
+    environment:
+      POSTGRES_DB: spatial_research
+      POSTGRES_USER: dwh_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:55433:5432"
+    volumes:
+      - spatial_research_data:/var/lib/postgresql/data
+
+volumes:
+  spatial_research_data:

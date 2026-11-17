@@ -1,0 +1,122 @@
+{
+  "status": "complete",
+  "completed_at_utc": "2026-11-11T11:40:34.223501+00:00",
+  "source_sha256": {
+    "alerts": "52af1ac3c8430f698b560798eb962c82742e68370f546d8a18cc94815619b76b",
+    "deliveries": "74fe687a73341e56bc793b7e105e970f538f3716fccf76ed6ffafd0964b9538b",
+    "districts": "4c79a55cbc0ad5f521e49388cd7f606ddeb8222d3b48b25ead4c40845802b8a3"
+  },
+  "input_data_sha256": {
+    "synthetic_points.csv": "c7c6a5dc5283d4fa35910c253f023a198f1b9d2e86512f5b78678ac76f810b44",
+    "independent_expected.csv": "41f20c972f15cff56941f5bd468ed73a318cc56af8178966a842608cbbb1ac0c"
+  },
+  "source_commit": "5b82d4c46c828f65b4f945098f8e6801b57ce1b0",
+  "districts": 10,
+  "source_note": "Unofficial simplified OSM-derived district candidates; administrative accuracy not established.",
+  "data_note": "Synthetic deliveries and coordinates; uniform longitude/latitude over district bounding box plus 0.05 degrees; not representative routes or area-uniform density.",
+  "seed": 20261111,
+  "bounds_lon_lat": [
+    30.192,
+    50.164,
+    30.8749,
+    50.635
+  ],
+  "events": 371,
+  "sizes": [
+    10000,
+    100000
+  ],
+  "counts": {
+    "10000": {
+      "matched": 3162,
+      "unmatched": 6838,
+      "ambiguous": 0,
+      "alert_active": 1784
+    },
+    "100000": {
+      "matched": 31669,
+      "unmatched": 68331,
+      "ambiguous": 0,
+      "alert_active": 17904
+    }
+  },
+  "input_integrity": {
+    "districts": 10,
+    "valid_districts": 10,
+    "alerts": 371,
+    "points": 100000,
+    "expected": 100000,
+    "copies_equal": true,
+    "indexed_gist": true
+  },
+  "independent_reference": "Python ray casting plus binary search over non-overlapping alert intervals; all outputs compared before and after",
+  "repetitions": 3,
+  "warmups_per_case": 1,
+  "order_seed": 20261111,
+  "timing_scope": "EXPLAIN ANALYZE server time; excludes result transfer and index creation; buffers and plans retained",
+  "index_build_wall_ms_once": 342.158,
+  "index_build_scope": "CREATE INDEX plus ANALYZE and docker exec process overhead; one sample, not included in query times",
+  "cache": "warmups; cache not cleared",
+  "memory": "total process memory not measured",
+  "postgres": {
+    "version": "PostgreSQL 17.11 (Debian 17.11-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+    "postgis": "POSTGIS=\"3.6.4 94d984b\" [EXTENSION] PGSQL=\"170\" GEOS=\"3.14.1-CAPI-1.20.5\" (compiled against GEOS 3.13.1) PROJ=\"9.8.1 NETWORK_ENABLED=OFF URL_ENDPOINT=https://cdn.proj.org USER_WRITABLE_DIRECTORY=/var/lib/postgresql/.local/share/proj DATABASE_PATH=/usr/share/proj/proj.db\" (compiled against PROJ 9.6.0) LIBXML=\"2.9.14\" LIBJSON=\"0.18\" LIBPROTOBUF=\"1.5.1\" WAGYU=\"0.5.0 (Internal)\" TOPOLOGY",
+    "settings": {
+      "effective_cache_size": "524288 8kB",
+      "jit": "on ",
+      "max_parallel_workers_per_gather": "2 ",
+      "random_page_cost": "4 ",
+      "shared_buffers": "16384 8kB",
+      "work_mem": "4096 kB"
+    }
+  },
+  "python": "3.13.3",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "image": "postgis/postgis:17-3.6@sha256:1ac10b2551ba84ae05db8e7da477afcd0a3fede99bcb7705da2ee157390cb095",
+  "container_and_anonymous_volume_cleanup": "complete",
+  "summary": [
+    {
+      "size": 10000,
+      "method": "unindexed",
+      "runs": 3,
+      "median_ms": 590.381,
+      "min_ms": 583.1,
+      "max_ms": 655.569
+    },
+    {
+      "size": 10000,
+      "method": "indexed",
+      "runs": 3,
+      "median_ms": 456.98,
+      "min_ms": 445.502,
+      "max_ms": 464.978
+    },
+    {
+      "size": 100000,
+      "method": "unindexed",
+      "runs": 3,
+      "median_ms": 4193.536,
+      "min_ms": 4188.295,
+      "max_ms": 4194.775
+    },
+    {
+      "size": 100000,
+      "method": "indexed",
+      "runs": 3,
+      "median_ms": 4165.143,
+      "min_ms": 4125.2,
+      "max_ms": 4201.346
+    }
+  ],
+  "query_sha256": {
+    "10000_unindexed": "f976b2cdce9af2d0c1089db9ed429fd6746a0013303fa7f0e540f7cbcf5266b0",
+    "10000_indexed": "d9b1a7f361c99eca798564c36fd83864b966bfb3f8b98f4192918a2a4892e2d8",
+    "100000_unindexed": "7155630fe1bfade42279e0d446250e2596646c3e4bb79823f10fac060aad4c5a",
+    "100000_indexed": "ed7cb30b5ff14c981137b78c27922828e0d51c553e382bfccfad22e653819360"
+  },
+  "spatial_index_used_in_measured": {
+    "10000": 3,
+    "100000": 3
+  },
+  "limitations": "One host, one seed, prefix datasets, 10 unofficial polygons, synthetic points, warm cache; no causal or production claims."
+}

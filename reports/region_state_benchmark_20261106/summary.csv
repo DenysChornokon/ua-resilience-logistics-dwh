@@ -1,0 +1,4 @@
+scenario_id,outage_count,state_count,runs,median_ms,min_ms,max_ms
+kyiv_synthetic_0050_v1,50,836,5,5.493,5.2,5.886
+kyiv_synthetic_0250_v1,250,1110,5,7.242,6.871,7.441
+kyiv_synthetic_1000_v1,1000,1430,5,13.628,12.785,14.49

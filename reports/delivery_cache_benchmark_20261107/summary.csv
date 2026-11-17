@@ -1,0 +1,10 @@
+profile,seed,scenario_id,states,deliveries,runs,materialize_ms,index_ms,analyze_ms,setup_ms,baseline_ms,cached_ms,setup_plus_cached_median_ms,setup_plus_cached_min_ms,setup_plus_cached_max_ms,baseline_min_ms,baseline_max_ms,estimated_break_even_queries
+sparse,41,density_sparse_s41_v1,1242,500,5,14.1,3.835,3.012,20.898,51.2,4.92,25.372,24.099,29.264,50.546,57.377,1
+sparse,42,density_sparse_s42_v1,1242,500,5,12.961,4.128,3.376,21.346,49.954,4.669,26.002,24.866,27.272,49.438,51.518,1
+sparse,43,density_sparse_s43_v1,1242,500,5,12.457,3.723,3.128,18.82,52.573,4.942,23.646,21.909,29.218,49.575,54.236,1
+uniform,41,density_uniform_s41_v1,1168,500,5,12.897,3.86,3.023,19.803,48.749,4.995,24.632,22.736,27.641,46.396,51.537,1
+uniform,42,density_uniform_s42_v1,1186,500,5,12.163,3.611,2.759,18.879,48.265,4.949,23.559,23.32,27.283,46.831,52.778,1
+uniform,43,density_uniform_s43_v1,1170,500,5,12.859,3.517,3.56,19.927,47.401,5.293,25.46,23.996,34.599,46.711,48.628,1
+clustered,41,density_clustered_s41_v1,762,500,5,13.729,3.565,3.167,20.994,36.2,4.882,25.592,23.521,31.102,33.959,39.156,1
+clustered,42,density_clustered_s42_v1,762,500,5,12.408,2.914,2.673,19.012,34.468,4.664,23.454,21.191,25.197,34.156,36.482,1
+clustered,43,density_clustered_s43_v1,762,500,5,13.238,3.527,3.145,20.561,35.215,4.825,25.035,22.496,36.214,33.134,36.564,1
